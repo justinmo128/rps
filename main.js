@@ -1,5 +1,5 @@
 let p1Out = document.getElementById("p1Out");
-let botOut = document.getElementById("botOut");
+let p2Out = document.getElementById("p2Out");
 let result = document.getElementById("result");
 let p1Select = "none";
 let p2Select = "none";
@@ -45,22 +45,21 @@ let functionIsRunning = false;
 function vsBot() {
     if (p1Select === "none") {
         p1Out.innerHTML = "";
-        botOut.innerHTML = "";
+        p2Out.innerHTML = "";
         result.innerHTML = "You didn't select anything."
     } else {
         functionIsRunning = true;
         let randNum = Math.random();
-        let botThing;
         if (randNum < (1/3)) {
-            botThing = "rock";
+            p2Select = "rock";
         } else if (randNum < (2/3)) {
-            botThing = "paper";
+            p2Select = "paper";
         } else {
-            botThing = "scissors";
+            p2Select = "scissors";
         }
     
         p1Out.innerHTML = `You chose ${p1Select}.`;
-        botOut.innerHTML = `The bot chose ?.`;
+        p2Out.innerHTML = `The bot chose ?.`;
     
         result.innerHTML = "Rock"
         setTimeout(() => {
@@ -71,27 +70,27 @@ function vsBot() {
         }, 800)
         setTimeout(
             () => {
-                botOut.innerHTML = `The bot chose ${botThing}.`;
+                p2Out.innerHTML = `The bot chose ${p2Select}.`;
                 if (p1Select === "rock") {
-                    if (botThing === "rock") {
+                    if (p2Select === "rock") {
                         result.innerHTML = "It's a tie!";
-                    } else if (botThing === "paper") {
+                    } else if (p2Select === "paper") {
                         result.innerHTML = "You lost...";
                     } else {
                         result.innerHTML = "You won!";
                     }
                 } else if (p1Select === "paper") {
-                    if (botThing === "rock") {
+                    if (p2Select === "rock") {
                         result.innerHTML = "You won!";
-                    } else if (botThing === "paper") {
+                    } else if (p2Select === "paper") {
                         result.innerHTML = "It's a tie!";
                     } else {
                         result.innerHTML = "You lost...";
                     }
                 } else {
-                    if (botThing === "rock") {
+                    if (p2Select === "rock") {
                         result.innerHTML = "You lost...";
-                    } else if (botThing === "paper") {
+                    } else if (p2Select === "paper") {
                         result.innerHTML = "You won!";
                     } else {
                         result.innerHTML = "It's a tie!";
@@ -107,7 +106,7 @@ function vsBot() {
 function vsPlayer() {
     if (p1Select === "none" || p2Select === "none") {
         p1Out.innerHTML = "";
-        botOut.innerHTML = "";
+        p2Out.innerHTML = "";
         result.innerHTML = "A player forgot to select!"
     } else {
         functionIsRunning = true;
@@ -121,7 +120,7 @@ function vsPlayer() {
         setTimeout(
             () => {
                 p1Out.innerHTML = `Player 1 chose ${p1Select}`
-                botOut.innerHTML = `Player 2 chose ${p2Select}.`;
+                p2Out.innerHTML = `Player 2 chose ${p2Select}.`;
                 if (p1Select === "rock") {
                     if (p2Select === "rock") {
                         result.innerHTML = "It's a tie!";
