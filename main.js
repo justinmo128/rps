@@ -104,9 +104,9 @@ function vsBot() {
 }
 
 function vsPlayer() {
+    p1Out.innerHTML = "";
+    p2Out.innerHTML = "";
     if (p1Select === "none" || p2Select === "none") {
-        p1Out.innerHTML = "";
-        p2Out.innerHTML = "";
         result.innerHTML = "A player forgot to select!"
     } else {
         functionIsRunning = true;
